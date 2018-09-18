@@ -1,0 +1,25 @@
+{
+  "name": "secret-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --ignore './db/' index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-plugin-styled-components": "^1.5.1",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.4",
+    "diskdb": "^0.1.17",
+    "express": "^4.16.3",
+    "google-images": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
