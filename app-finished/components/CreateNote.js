@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NoteConsumer } from '../components/NoteProvider';
 import Form from './styles/Form';
-import styled from 'styled-components';
 import ToggleDrawer from './ToggleDrawer';
 import FancyButton from './styles/FancyButton';
 import CreateNoteDropDown from './styles/CreateNoteDropdown';

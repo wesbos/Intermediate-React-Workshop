@@ -128,11 +128,13 @@ Let's create this now, in the `Components` folder:
 
 
 ```js
+import Link from 'next/link';
+
 const Page = props => (
   <div>
     <Link href="/">
       <a>
-        <Heading>Take Notes!</Heading>
+        <h1>Take Notes!</h1>
       </a>
     </Link>
     {props.children}
@@ -158,17 +160,36 @@ If you take a look at your react dev tools - you'll see we actually do have an `
 
 ![](http://wes.io/99a2c4916ab2/content)
 
+We can acutally create our own custom App component by creating a file called `pages/_app.js` with the following code. This is also a good place to put your Page component if you want it to be on every single page of your application.
 
-next.js does a little bit und
-
-_app.js Create this
-
-## Managing State with React's context API
-* Start with a simple example with numbers
-* Render Props Aside
+Type the following code in it's entirety. We will come back to the `getInitialProps` section shortly and explain what we are doing here.
 
 
-## Styling with Styled Components
+```js
+import App, { Container } from 'next/app';
+import Page from '../components/Page';
 
+class MyApp extends App {
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
 
-## Creating
+    pageProps.query = ctx.query;
+    return { pageProps };
+  }
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <Container>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </Container>
+    );
+  }
+}
+
+export default MyApp;
+```
