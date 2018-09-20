@@ -1,6 +1,5 @@
 import Downshift from 'downshift';
 import Router from 'next/router';
-import styled from 'styled-components';
 import withNotes from '../lib/withNotes';
 import SearchStyles from './styles/SearchStyles';
 
@@ -9,29 +8,24 @@ const Search = ({ notes }) => (
     onChange={note => Router.push(`/note?id=${note._id}`)}
     itemToString={item => (item ? item.title : '')}
   >
-    {({
-      getInputProps,
-      getItemProps,
-      getLabelProps,
-      getMenuProps,
-      isOpen,
-      inputValue,
-      highlightedIndex,
-    }) => (
+    {ds => (
       <div>
         <SearchStyles>
-          <input {...getInputProps({ placeholder: 'Search' })} />
-          <ul {...getMenuProps()}>
-            {isOpen &&
+          <input {...ds.getInputProps({ placeholder: 'Search' })} />
+          <ul {...ds.getMenuProps()}>
+            {ds.isOpen &&
               notes
-                .filter(item => !inputValue || item.title.includes(inputValue))
+                .filter(
+                  item => !ds.inputValue || item.title.includes(ds.inputValue)
+                )
                 .map((item, index) => (
                   <li
-                    {...getItemProps({
-                      key: item.value,
+                    {...ds.getItemProps({
+                      key: item._id,
                       index,
                       item,
-                      className: highlightedIndex === index ? 'selected' : '',
+                      className:
+                        ds.highlightedIndex === index ? 'selected' : '',
                     })}
                   >
                     {item.title}

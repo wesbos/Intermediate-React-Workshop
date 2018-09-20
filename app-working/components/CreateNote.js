@@ -1,52 +1,54 @@
 import React, { Component } from 'react';
 import { NoteConsumer } from '../components/NoteProvider';
-import ToggleDrawer from './ToggleDrawer';
 import Form from './styles/Form';
 import FancyButton from './styles/FancyButton';
 import CreateNoteDropDown from './styles/CreateNoteDropdown';
 
 class CreateNote extends Component {
   state = {
-    title: 'Test est',
-    content: 'testing 123',
+    title: '',
+    content: '',
   };
+
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   handleSubmit = (e, saveNote) => {
     e.preventDefault();
     console.log('Save Note!');
     saveNote(this.state);
   };
+
   render() {
     return (
       <NoteConsumer>
-        {({ state, saveNote }) => (
+        {({ state, toggleDrawer, saveNote }) => (
           <CreateNoteDropDown open={state.drawerOpen}>
             <Form onSubmit={e => this.handleSubmit(e, saveNote)}>
               <label htmlFor="title">
                 <input
-                  value={this.state.title}
                   required
-                  onChange={this.saveToState}
                   type="text"
+                  onChange={this.saveToState}
+                  value={this.state.title}
                   name="title"
                   id="title"
                 />
               </label>
               <label htmlFor="content">
                 <textarea
-                  value={this.state.content}
                   required
                   type="text"
+                  onChange={this.saveToState}
+                  value={this.state.content}
                   name="content"
                   id="content"
-                  onChange={this.saveToState}
                 />
               </label>
 
               <FancyButton type="submit">Save Note</FancyButton>
-              <ToggleDrawer>Cancel</ToggleDrawer>
+              <FancyButton onClick={toggleDrawer}>Toggle</FancyButton>
             </Form>
           </CreateNoteDropDown>
         )}
