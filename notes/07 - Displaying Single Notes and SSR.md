@@ -1,6 +1,6 @@
 ## Single Notes and SSR
 
-You'll notice that if we refresh the page it goes from 0 to 3 notes. This is beccause the SSR has no idea it needs to wait for the list of notes to load.
+You'll notice that if we refresh the page it goes from 0 to 3 notes. This is because the SSR has no idea it needs to wait for the list of notes to load.
 
 We're going to leave that as-is, but look at another way to load data for SSR with our single notes. This will ensure that each note's single page will be SSR and indexed by search engines.
 

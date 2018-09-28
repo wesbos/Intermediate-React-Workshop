@@ -12,7 +12,7 @@ Today we are going to build a simple note-taking app while learning about some i
 * Fetching Data and Talking to Servers
 * Applying CSS with styled-components
 * Leveraging Downshift for easy and accessible search
-* Server Side Rendering and Lifecycle Methods
+* Server Side Rendering and Life Cycle Methods
 
 You can take a look at the finished application by running `npm install` and then `npm run dev` in the `app-finished` folder.
 

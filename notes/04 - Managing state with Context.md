@@ -14,7 +14,7 @@ We're going to start with a simple example of a boolean called `drawerOpen` that
 
 Let's start by making `components/NoteProvider.js`.
 
-```js
+```JSX
 import React, { Component } from 'react';
 import axios from 'axios';
 import { endpoint } from '../config';
@@ -47,7 +47,7 @@ export { NoteConsumer };
 Then in order to surface the state and functions to our provider, we pass them like so:
 
 
-```js
+```JSX
 <NoteContext.Provider
   value={{
     state: this.state,
@@ -64,7 +64,7 @@ Then we need to inject this provider in at the top of our application so we can 
 
 First we need to import that note provider:
 
-```js
+```JSX
 import NoteProvider from '../components/NoteProvider';
 ```
 
@@ -84,14 +84,14 @@ Now in order to access the values from our state, we use the `NoteConsumer` we e
 
 Let's try create a CreateNote.js component in the components folder.
 
-```js
+```JSX
 import React, { Component } from 'react';
 import { NoteConsumer } from '../components/NoteProvider';
 
 class CreateNote extends Component {
   render() {
     return (
-      <div>I will ytell you if I'm open or closed</div>
+      <div>I will tell you if I'm open or closed</div>
     );
   }
 }
@@ -106,7 +106,7 @@ Render props are a bit of a weird name. It's a component that, instead of having
 Here is a simple example outside of what we are doing right now. What if we wanted a component that provided us with a list of dogs? We might be supplied with a `GiveMeDogs` component that we would use this way:
 
 
-```js
+```JSX
 class DisplayDogs extends React.Component {
   render() {
     return (
@@ -129,7 +129,7 @@ This is often confusing because we use a few features of ES6 - Arrow functions, 
 
 While this is popular, you can also just simply provide a regular 'ol function that accepts an argument and returns some JSX:
 
-```js
+```JSX
 function makeDogSentence(dogs) {
   return <p>There are {dogs.length} dogs</p>
 }
@@ -144,7 +144,7 @@ class DisplayDogs extends React.Component {
 ```
 
 
-Back to our `NoteConsumer` component - this render prop function will pass you any values that were defined in the `NoteProvder`'s value.
+Back to our `NoteConsumer` component - this render prop function will pass you any values that were defined in the `NoteProvider`'s value.
 
 We can access everything like this:
 
@@ -181,7 +181,7 @@ A: Whenever you move data out of a component, it becomes less portable. Suddenly
 
 Local state in components is still very useful - often times you will only want that data to be contained to a single component, or are fine with passing data down via props.
 
-TLDR reach for context when you have a need for elevated (or dare we say global) state that is accessible and injectable at different levels.
+TLDR: reach for context when you have a need for elevated (or dare we say global) state that is accessible and injectable at different levels.
 
 ### Q: Does it replace Redux?
 

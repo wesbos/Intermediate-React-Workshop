@@ -6,7 +6,7 @@ In this section we are going to create notes. It will teach us how to use local 
 
 First we need to pull in three different styled components I've prepared for you:
 
-```js
+```JSX
 import Form from './styles/Form';
 import FancyButton from './styles/FancyButton';
 import CreateNoteDropDown from './styles/CreateNoteDropdown';
@@ -44,7 +44,7 @@ Step three requires that we somehow take the data out of the form inputs before 
 
 Lets start by creating local state in our CreateNote component:
 
-```js
+```JSX
 state = {
   title: '',
   content: '',
@@ -57,7 +57,7 @@ Now if we try to type into an input, you'll notice we get an error.
 
 This is because we need to mirror each change to state:
 
-```js
+```JSX
 saveToState = e => {
   this.setState({ [e.target.name]: e.target.value });
 };
@@ -72,7 +72,7 @@ Lets open our `NoteProvider.js`, and add the following function.
 
 lets also step though exactly what this is doing
 
-```js
+```JSX
 saveNote: async note => {
   // post it to the backend
   const res = await axios.post(endpoint, { note });
@@ -107,7 +107,7 @@ When someone submits the form, we hav to do two things:
 
 We can create an event handler on our CreateNote component:
 
-```js
+```JSX
 handleSubmit = (e, saveNote) => {
   e.preventDefault();
   console.log('Save Note!');

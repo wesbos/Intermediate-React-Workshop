@@ -9,7 +9,7 @@ Create a button that when clicked will both ping the backend to delete on the se
 Some tips:
 
 1. You'll need to create a new method in your Provider and expose it via your consumer
-1. The backend endpoint must use DELETE verbe. IE: `axios.delete(`${endpoint}/${id}`)`
+1. The backend endpoint must use DELETE verb. IE: `axios.delete(`${endpoint}/${id}`)`
 1. For Extra points, make a `DeleteNote.js` render prop component that can be used like below. this way the look of your delete button isn't tied to the functionality.
 
 ```JSX

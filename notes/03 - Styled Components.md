@@ -14,7 +14,7 @@ The basics of styled components is that instead of creating an element, adding a
 
 say we start with this:
 
-```jsx
+```JSX
 <div className="hey">
   <p>Hey</p>
 </div>
@@ -26,7 +26,7 @@ say we start with this:
 
 Instead of using a div, we create a div with the styles attached directly to it:
 
-```js
+```JSX
 import styled from 'styled-components';
 
 const HeyStyles = styled.div`
@@ -37,15 +37,15 @@ const HeyStyles = styled.div`
 And then use that component wherever we need those styles applied to a div:
 
 
-```js
+```JSX
 <HeyStyles>
   <p>Hey</p>
 </HeyStyles>
 ```
 
-Note how we use backticks after the `styled.div`? We can write any regular CSS in here, including child selectors:
+Note how we use back ticks after the `styled.div`? We can write any regular CSS in here, including child selectors:
 
-```js
+```JSX
 const HeyStyles = styled.div`
   background: red;
   p {
@@ -56,7 +56,7 @@ const HeyStyles = styled.div`
 
 In addition to that we can access the props of a component like so:
 
-```js
+```JSX
 <HeyStyles cool={true}>
   <p>Hey</p>
 </HeyStyles>
@@ -78,11 +78,11 @@ Scoped styles in a react application isn't always the best way to approach certa
 
 Base styles like a CSS reset, border-box, fonts and colours are best set globally on the entire document. No one wants to have to set the font-family and font-size on every single paragraph tag they create.
 
-To do this, let's crack open `components/styles/PageStyles.js` and write the following CSS. You'll notice that we use `injectGlobl` to .. well ... inject global styles :)
+To do this, let's crack open `components/styles/PageStyles.js` and write the following CSS. You'll notice that we use `injectGlobal` to .. well ... inject global styles :)
 
 Then we also create a PageStyles div that we can use to replace our div in `Page.js`.
 
-```js
+```JSX
 import styled, { injectGlobal } from 'styled-components';
 
 // global styles
@@ -161,7 +161,7 @@ I find that if the component is more than 20 lines, or is used in more than one 
 
 Answer:
 
-```js
+```JSX
 const Heading = styled.h1`
   text-align: center;
   font-size: 70px;

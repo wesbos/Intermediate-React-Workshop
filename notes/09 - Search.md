@@ -10,7 +10,7 @@ The search will be simple - we are just going to loop over all notes and see if 
 
 First thing we need to do is get a list of the notes. We could use the Consumer render prop here, but instead lets practice writing HOC.
 
-create a new `lib/withNotes.js` component and lets talk thorugh this:
+create a new `lib/withNotes.js` component and lets talk through this:
 
 ```JSX
 import { NoteConsumer } from '../components/NoteProvider';

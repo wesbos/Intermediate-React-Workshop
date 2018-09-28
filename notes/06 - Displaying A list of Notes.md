@@ -43,9 +43,9 @@ Now comes a problem that we have with render props.
 
 We could of course use our consumer in the render to pull a list of notes from state, **BUT** we need to fetch the notes when the component is mounted to the page.
 
-The best place to fetch data when a react component mounts is in the `componentDidMount` lifecycle method. This typically fires before the initial render is put on the page.
+The best place to fetch data when a react component mounts is in the `componentDidMount` life cycle method. This typically fires before the initial render is put on the page.
 
-So here is the problem — if `getNotes` is exposed via a render prop, how do we call it in a lifecycle method? Furthermore, if we were to call it inside of render, it would get called on every single re-render!
+So here is the problem — if `getNotes` is exposed via a render prop, how do we call it in a life cycle method? Furthermore, if we were to call it inside of render, it would get called on every single re-render!
 
 so, _when you need access to a method throughout the entire component (not just render),  it it best to just a High Order Component (HOC) instead of a render prop_. This will allow us to pass reference to the function into our `NotesList.js` component via props.
 
